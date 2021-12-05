@@ -1,3 +1,25 @@
+-- ----------------------------
+-- Create db
+-- ----------------------------
+IF db_id(N'Consumer') IS NOT NULL
+	DROP DATABASE [Consumer];
+GO
+
+CREATE DATABASE [Consumer];
+GO
+
+USE [Consumer];
+GO
+
+-- ----------------------------
+-- Create schema
+-- ----------------------------
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = N'Consumer')
+	DROP SCHEMA [Consumer];
+GO
+
+CREATE SCHEMA [Consumer];
+GO
 
 -- ----------------------------
 -- Table structure for Persons
@@ -24,7 +46,7 @@ GO
 -- Primary Key structure for table Persons
 -- ----------------------------
 ALTER TABLE [Consumer].[Persons] ADD CONSTRAINT [PK_YourTable] PRIMARY KEY CLUSTERED ([Id])
-WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)  
+WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
 ON [PRIMARY]
 GO
 
